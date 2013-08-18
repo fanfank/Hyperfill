@@ -1,0 +1,44 @@
+{
+  "manifest_version": 2,
+  "name": "Hyperfill",
+  "version": "2.0",
+  "description": "Help you fill the blocks.",
+  "content_scripts": [
+    {
+	  "matches":[
+	   "http://*/*",
+	   "https://*/*"
+	  ],
+      "js": ["js/aes.js", "js/md5.js", "js/padzeropadding.js", "js/content_script.js","js/rsa.js","js/cryption.js","js/localFunc.js"],
+      "run_at": "document_end",
+      "all_frames": false
+	}
+  ],
+  "background": {
+	"scripts": ["js/background.js", "js/localFunc_bg.js", "js/cryption.js", "js/md5.js", "js/aes.js", "js/padzeropadding.js"]
+  },
+
+  "browser_action": {
+	"default_title": "Hyperfill",
+	"default_icon": "icon/pen_red_128.png", //the icon is from internet
+	"default_popup": "html/popup.html"
+  },
+  
+  "icons": {
+    "16": "icon/pen_red_16.png",
+	"32": "icon/pen_red_32.png",
+	"48": "icon/pen_red_48.png",
+	"72": "icon/pen_red_72.png",
+	"128":"icon/pen_red_128.png"
+  },
+  
+  "options_page": "html/options.html",
+  
+  "permissions": [
+	"tabs", 
+	"storage",
+	"http://*/*",
+	"https://*/*"
+  ]
+  
+}

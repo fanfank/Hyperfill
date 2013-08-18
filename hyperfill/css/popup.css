@@ -1,0 +1,37 @@
+body{
+    font-family: "sans-serif", "YouYuan";
+}
+
+input:focus{
+  background-color: #eaeaea;
+}
+
+.help{
+    font-family: "Microsoft YaHei", "FangSong";
+    font-size:x-small;
+    font-style:oblique;
+}
+
+.title{
+  font: Fantasy, Cursive, Serif, sans-serif;
+  color: #009dce;
+  font-weight: bold;
+}
+
+.btn{
+	color: white;
+	background-color: #009dce;
+	border: none;
+}
+.btn:hover{
+	background-color: #00bee8;
+}
+
+.text{
+	border: 2px solid #009dce;
+	outline: none;
+}
+
+.text:hover{
+	border-color: #00bee8;
+}

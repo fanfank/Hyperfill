@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Auto-Fill for Chrome</title>
+	<link rel="stylesheet" type="text/css" href="../css/popup.css">
+    <script type="text/javascript" src="../js/cryption.js"></script>
+	<script type="text/javascript" src="../js/aes.js"></script>
+	<script type="text/javascript" src="../js/md5.js"></script>
+	<script type="text/javascript" src="../js/rsa.js"></script>
+	<script type="text/javascript" src="../js/padzeropadding.js"></script>
+	<script type="text/javascript" src="../js/popup.js"></script>
+	<script type="text/javascript" src="../js/localFunc.js"></script>
+	<script type="text/javascript" src="../js/primes.js"></script>
+  </head>
+
+  <body>
+	<div>
+    	<img src="../title.png" />
+    </div>
+	<hr size=1px color=#009dce />
+    <div>
+		<input type="button" class="btn" id="savebtn" name="savebtn" value="保存当前表单" />
+		<span class="help" id="help_savebtn"></span>
+	</div>
+	<div>
+		<input type="button" class="btn" id="clearbtn" name="clearbtn" value="清除保存内容" />
+		<span class="help" id="help_clearbtn"></span>
+	</div>
+	<div>
+		<span class="title">Username:</span><br />
+		<input type="text" id="username" class="text" name="username" placeholder="请输入您的用户名" required /><br />
+		<span class="help" id="help_username"></span><br />
+	
+		<span class="title">Password:</span><br />
+		<input type="password" id="passwd" class="text" name="passwd" placeholder="请输入您的密码" required /><br />
+		<span class="help" id="help_passwd"></span><br />
+		<input type="password" id="passwd2" class="text" name="passwd2" placeholder="若注册则再次输入密码"/><br />
+		<span class="help" id="help_passwd2" ></span><br />
+	</div>
+	<div>
+		<input type="button" class="btn" id="loginbtn" name="loginbtn" value="Login" />
+		<input type="button" class="btn" id="regbtn" name="regbtn" value="Register" />
+		<a class="btn" href="options.html" target="_blank">options</a>
+		<br />
+		<span class="help" id="help_loginbtn"></span>
+	</div>
+  </body>
+</html>

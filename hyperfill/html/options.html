@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>HyperFill</title>
+    <link rel="stylesheet" type="text/css" href="../css/options.css" />
+    <!--<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>-->
+	<script type="text/javascript" src="../js/aes.js"></script>
+	<script type="text/javascript" src="../js/md5.js"></script>
+	<script type="text/javascript" src="../js/padzeropadding.js"></script>
+	<script type="text/javascript" src="../js/options.js" charset="gb2312"></script>
+    <script type="text/javascript" src="../js/cryption.js"></script>
+</head>
+
+<body>
+<div id="mask" class="hide"></div>
+<div id="main">
+	<div id="top">
+    	<div id="toptitle">
+        	<img id="logo" src="../resources/title.png" />
+        	<!--<span id="settings">设置</span>-->
+        <span id="username"></span>	
+        </div> 
+       
+	</div>
+    <hr class="seperateline" color="#009dce"/>
+    <div id="maincontent">
+    	<div id="viewbtn" class="menubtncurrent">查看所有记录</div>
+        <div id="changepasswdbtn" class="menubtn">修改密码</div>
+        
+        <div id="viewcontent" class="content">
+            <div id="vieworhide">↓查看↓</div>
+            <div id="waitforloading" class="hide">正在加载，请稍候...</div>
+            <div id="tablediv" class="hide">
+                <table id="viewtable" class="">
+<!--                    <tr class="tablehead">
+                        <th class="col1">网址</th>
+                        <th class="col2">账号</th>
+                        <th class="col3">密码</th>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="http://www.baidu.com" />http://www.baidu.com</td>
+                        <td>sixstrings</td>
+                        <td>ksjdflkadjj#@</td>
+                    </tr>-->
+                    
+                </table>
+                <div id="tablebottom">
+                    <span id="delete" class="tablefuncbtn">删除选中记录</span>
+                    <span id="selectall" class="tablefuncbtn">全选</span>
+                    <span id="selectinverse" class="tablefuncbtn">反选</span>
+                    <span id="deleting" class="deleteprompt hide">正在执行，请稍候...</span>
+                    <span id="deleted" class="deleteprompt hide">成功，重启浏览器生效</span>
+                    <span id="recordnum"></span>
+                </div>
+            </div>
+        </div>
+       
+        <div id="changepasswdcontent" class="content hide" >
+            <div id="changepasswdmain" class="">
+                <table id="changepasswdtable" class="">
+                    <tr class="trwithbottomborder">
+                        <td class="tdlabel">原密码：</td>
+                        <td class="passwdcol"><input id="oldpasswd" type="password" class="passwdbox" /></td>
+                        <td class="promptcol">
+                            <div id="oldpasswdicon" class=""></div>
+                            <span id="oldpasswdprompt" class="passprompt">密码由数字、字母和下划线组成，长度为4-16位。</span>
+                        </td>
+                        <td class="submitcol" rowspan ="3"><div id="submitbutton"></div></td>
+                    </tr>
+                    <tr class="trwithbottomborder">
+                        <td class="tdlabel">新密码：</td>
+                        <td class="passwdcol"><input id="newpasswd" type="password" class="passwdbox" /></td>
+                        <td class="promptcol">
+                            <div id="newpasswdicon" class=""></div>
+                            <span id="newpasswdprompt" class="passprompt">密码由数字、字母和下划线组成，长度为4-16位。</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdlabel">确认新密码：</td>
+                        <td class="passwdcol"><input id="newpasswd2" type="password" class="passwdbox" /></td>
+                        <td class="promptcol">                        
+                            <div id="newpasswd2icon" class=""></div>
+                            <span id="newpasswd2prompt" class="passprompt">密码由数字、字母和下划线组成，长度为4-16位。</span>
+                            <span id="newpasswd2confirm" class="passprompt hide">两次密码不一致，请重新输入。</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="changepasswdresult" class="hide">
+                <div id="result" class="">
+                    <span id="resulticon" class=""></span>
+                    <span id="resulttext">提交中，请稍候...</span>
+                </div>
+                <div class="">
+                    <span id="backbtn" class="">返 回</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
