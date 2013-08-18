@@ -1,8 +1,9 @@
 Hyperfill
 =========
 
-A Chrome extension to auto fill the forms  
+A Chrome extension to auto fill the forms, current __version: 2.0__
 You are free to download/use/modify these codes for __non-commercial__ uses  
+__Version1.0 DemoVideo/演示视频()__: http://v.youku.com/v_show/id_XNTM0MzQzMDI0.html  
 __if you understand chinese, skip this README.md and directly view the *最简单的安装方法.txt*__
 
 ###Description
