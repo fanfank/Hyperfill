@@ -47,7 +47,7 @@ then click the extionsion icon, and click *保存当前表单* to save.
 
 ###TODO
 > 1. Find a way to reduce code redundancy
-> 2. Every php file contains databases's username and password, group it into a single file
+> 2. ~~Every php file contains databases's username and password, group it into a single file~~
 > 3. Waiting for some advices
 
 +           Git: fanfank
