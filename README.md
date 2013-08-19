@@ -52,11 +52,11 @@ then click the extionsion icon, and click *保存当前表单* to save.
 > 3. Waiting for some advices
 
 +           Git: fanfank
-+   Code author: Reetsee.Xu
++   Code author: Reetsee.Xu, Harry.Xiao, Shenghua.Xu, Junhua.He
 + Contact email: reetsee.xu@gmail.com  
 
 <div class = "footer">
-    &copy; 2013 Reetsee.Xu
+    &copy; 2013 XiaoHe Team
 </div>
 
 *README.md Last update: 20130818*
