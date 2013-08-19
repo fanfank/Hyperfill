@@ -38,13 +38,14 @@ int `./PHP/*.php` files
 11. All set. 
 
 ###Usage
-1. After installation, just register a local account(length of username <= 3) or a web account(length of username > 3), 
+1. Strongly recommend you directly refer to the Demo Video (even though it's a v1.0) first. Else move forward.
+2. After installation, just register a local account(length of username <= 3) or a web account(length of username > 3), 
 fill all three rows, and be aware that if your don't finish 7~10 in *Installation* above, you can't register or use a web account.
-2. Login with your account. Open a new tab ( __old tabs must be refreshed to load the extension__ ), fill in any forms, 
+3. Login with your account. Open a new tab ( __old tabs must be refreshed to load the extension__ ), fill in any forms, 
 then click the extionsion icon, and click *保存当前表单* to save.
-3. You can click *清除保存内容* to clean what you have saved on the current page.
-4. When you shut the broweser, your account will automatically logoff.
-5. More functions I don't write in detailed, if you are interested, contact my email.
+4. You can click *清除保存内容* to clean what you have saved on the current page.
+5. When you shut the broweser, your account will automatically logoff.
+6. More functions I don't write in detailed, if you are interested, contact my email.
 
 ###TODO
 > 1. Find a way to reduce code redundancy
