@@ -78,7 +78,7 @@ function showResult(type, response)
 	else if(type == "logoff")
 	{
 		un.disabled = pw.disabled = false;
-		pw.value = "";
+		un.value = pw.value = "";
 			
 		un.focus();
 		document.getElementById("clearbtn").disabled = document.getElementById("savebtn").disabled = true;
