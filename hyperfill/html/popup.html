@@ -28,23 +28,25 @@
 		<input type="button" class="btn" id="clearbtn" name="clearbtn" value="清除保存内容" />
 		<span class="help" id="help_clearbtn"></span>
 	</div>
-	<div>
+	<form>
+	  <div>
 		<span class="title">Username:</span><br />
-		<input type="text" id="username" class="text" name="username" placeholder="请输入您的用户名" required /><br />
+		<input type="text" id="username" class="text" name="username" tabindex="1" placeholder="请输入您的用户名" required /><br />
 		<span class="help" id="help_username"></span><br />
-	
+
 		<span class="title">Password:</span><br />
-		<input type="password" id="passwd" class="text" name="passwd" placeholder="请输入您的密码" required /><br />
+		<input type="password" id="passwd" class="text" name="passwd" tabindex="2" placeholder="请输入您的密码" required /><br />
 		<span class="help" id="help_passwd"></span><br />
-		<input type="password" id="passwd2" class="text" name="passwd2" placeholder="若注册则再次输入密码"/><br />
+		<input type="password" id="passwd2" class="text" name="passwd2" tabindex="3" placeholder="若注册则再次输入密码" /><br />
 		<span class="help" id="help_passwd2" ></span><br />
-	</div>
-	<div>
-		<input type="button" class="btn" id="loginbtn" name="loginbtn" value="Login" />
-		<input type="button" class="btn" id="regbtn" name="regbtn" value="Register" />
+	  </div>
+	  <div>
+		<input type="submit" class="btn" id="loginbtn" name="loginbtn" tabindex="4" value="Login" />
+		<input type="button" class="btn" id="regbtn" name="regbtn" tabindex="5" value="Register" />
 		<a class="btn" href="options.html" target="_blank">options</a>
 		<br />
 		<span class="help" id="help_loginbtn"></span>
-	</div>
+	  </div>
+	</form>
   </body>
 </html>
