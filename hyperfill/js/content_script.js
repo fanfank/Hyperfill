@@ -3,7 +3,7 @@ var isLocal = -1;
 var hyper_fill_username = "", hup="";
 var un_md5="", pw_md5="";
 var req = new XMLHttpRequest();
-var url = window.location.href;
+var url = (window.location.href + "").substring(0, (window.location.href + "").indexOf("/", 8));
 var aes_key="";
 var aes_server_key="";
 var aes_server_iv="";
@@ -139,6 +139,7 @@ function deleteSessionStorage()
 
 function setSessionStorage(content)
 {	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	if(isLogined == 2)  //local user
 	{
 		chrome.extension.sendMessage({setContent: encodeURIComponent(url), contents: content}, 
@@ -161,6 +162,7 @@ function setSessionStorage(content)
 
 function init()
 {
+	//console.log("URL:" + url);
 	chrome.extension.sendMessage({logined: "logined?"}, 
 		function(response)
 		{
@@ -259,6 +261,8 @@ function autoFill(type)  //type用于指定是local还是session
 
 function csAction(action) // save/clear form
 {
+	var index = 
+	(window.location.href + "").substr((window.location.href + "").indexOf(8, "\/") + 1);
 	console.log("actionForm clicked");
 	if(action == "save")
 	{
