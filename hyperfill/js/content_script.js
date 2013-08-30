@@ -261,8 +261,6 @@ function autoFill(type)  //type用于指定是local还是session
 
 function csAction(action) // save/clear form
 {
-	var index = 
-	(window.location.href + "").substr((window.location.href + "").indexOf(8, "\/") + 1);
 	console.log("actionForm clicked");
 	if(action == "save")
 	{
