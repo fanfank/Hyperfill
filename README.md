@@ -51,6 +51,7 @@ then click the extionsion icon, and click *保存当前表单* to save.
 > 1. Find a way to reduce code redundancy
 > 2. ~~Every php file contains databases's username and password, group it into a single file~~
 > 3. Waiting for some advices
+> 4. ~~Enable both using *tab* key to switch between inputs and using *enter* to trigger *Login* button~~
 
 +           Git: fanfank
 +   Code authors: Reetsee.Xu, Harry.Xiao, Shenghua.Xu, Junhua.He
@@ -60,5 +61,5 @@ then click the extionsion icon, and click *保存当前表单* to save.
     &copy; 2013 XiaoHe Team
 </div>
 
-*README.md Last update: 20130818*
+*README.md Last update: 20130829*
 
