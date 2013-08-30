@@ -1,7 +1,7 @@
 Hyperfill
 =========
 
-A Chrome extension to auto fill the forms, current __version: 2.0__  
+A Chrome extension to auto fill the forms, current __version: 2.5__  
 You are free to download/use/modify these codes for __non-commercial__ uses  
 __Version1.0 DemoVideo/演示视频__: http://v.youku.com/v_show/id_XNTM0MzQzMDI0.html  
 __if you understand chinese, skip this README.md and directly view the *最简单的安装方法.txt*__
@@ -51,7 +51,8 @@ then click the extionsion icon, and click *保存当前表单* to save.
 > 1. Find a way to reduce code redundancy
 > 2. ~~Every php file contains databases's username and password, group it into a single file~~
 > 3. Waiting for some advices
-> 4. ~~Enable both using *tab* key to switch between inputs and using *enter* to trigger *Login* button~~
+> 4. Enable both using *tab* key to switch between inputs and using *enter* to trigger *Login* button
+> 5. ~~Forms of dynamic URLs, say *https://mail.qq.com/xxx/yyy?12345...* and *https://mail.qq.com/xxx/yyy?54321...* can both get the forms filled
 
 +           Git: fanfank
 +   Code authors: Reetsee.Xu, Harry.Xiao, Shenghua.Xu, Junhua.He
@@ -61,5 +62,5 @@ then click the extionsion icon, and click *保存当前表单* to save.
     &copy; 2013 XiaoHe Team
 </div>
 
-*README.md Last update: 20130829*
+*README.md Last update: 20130830*
 
