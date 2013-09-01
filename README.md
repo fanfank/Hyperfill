@@ -53,12 +53,9 @@ then click the extionsion icon, and click *保存当前表单* to save.
 > 3. Waiting for some advices
 > 4. Enable both using *tab* key to switch between inputs and using *enter* to trigger *Login* button
 > 5. ~~Forms of dynamic URLs, say *https://mail.qq.com/xxx/yyy?12345...* and *https://mail.qq.com/xxx/yyy?54321...* can both get the forms filled~~
-> 6. Make the server remember who has logged in
+> 6. Make the server remember who has logged in    
 
-+           Git: fanfank
-+   Code authors: Reetsee.Xu, Harry.Xiao, Shenghua.Xu, Junhua.He
-+ Contact email: reetsee.xu@gmail.com  
-
+===
 ###VERSION LOGs
 ####Version 2.7 2013-09-01
 1. Change all "GET" method to "POST"
@@ -79,7 +76,11 @@ finally decided to remove this user type.
 1. Made hyperfill, because of local user's security problem, only net user was preserved.
 2. After registration, net users can have their forms auto filled.    
 
-===    
+===     
++           Git: fanfank
++   Code authors: Reetsee.Xu, Harry.Xiao, Shenghua.Xu, Junhua.He
++ Contact email: reetsee.xu@gmail.com    
+
 <div class = "footer">
     &copy; 2013 XiaoHe Team
 </div>
