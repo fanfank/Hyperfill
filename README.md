@@ -4,8 +4,10 @@ Hyperfill
 A Chrome extension to auto fill the forms, current __version: 2.7__  
 You are free to download/use/modify these codes for __non-commercial__ uses  
 __Version 1.0 DemoVideo - 1.0版本 演示视频__: http://v.youku.com/v_show/id_XNTM0MzQzMDI0.html  
-__if you understand chinese, skip this README.md and directly view the *最简单的安装方法.txt*__
+__if you understand chinese, skip this README.md and directly view the *最简单的安装方法.txt*__   
 
+===  
+![Frame](https://raw.github.com/fanfank/Hyperfill/master/%E9%99%84%E5%BD%95/screenshots/hyperfill_frame.png)  
 ###Description
 1. This extension enables two account types: local account and web account.
 2. Local account requires nothing but a length of 3 characters of username when you register, while the length of a 
