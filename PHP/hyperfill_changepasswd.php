@@ -1,7 +1,7 @@
 <?php
 	header("Content-type:text/html; charset=utf-8");
 	include "hyperfill_decryptaes.php";
-	include "hyperfill_settings.php"
+	include "hyperfill_settings.php";
 	session_start();
 	if(!isset($_SESSION['valid_user'])){
 		echo "You are not logged in.\n";

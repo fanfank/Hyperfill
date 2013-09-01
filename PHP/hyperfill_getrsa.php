@@ -110,8 +110,8 @@ function toCC( $str , $e , $n)
 	return $tmpstr;
 }
 	session_start();
-	$e = $_GET['pubke'];
-	$n = $_GET['pubkn'];
+	$e = $_POST['pubke'];
+	$n = $_POST['pubkn'];
 	$key = randompw(16);
 	$iv = randompw(16);
 	//$_SESSION['key'] = $key;

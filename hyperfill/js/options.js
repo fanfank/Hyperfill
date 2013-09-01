@@ -285,7 +285,7 @@ function getRecord() {
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     //console.log();
-    console.log( "http://localhost/hyperfill_view.php"+"?username=" + encryptAES(encryptMD5(curUsername, ""), aes_server_key, aes_server_iv));
+    //console.log( "http://localhost/hyperfill_view.php"+"?username=" + encryptAES(encryptMD5(curUsername, ""), aes_server_key, aes_server_iv));
     xhr.send("username=" + encryptAES(encryptMD5(curUsername, ""), aes_server_key, aes_server_iv));
 }
 
@@ -439,20 +439,7 @@ function deleteRecords() {
 
 function main()
 {
-    //alert("1: " + curUsername);
-    /*
-	chrome.extension.sendMessage({logined: "logined?"}, 
-		function(response)
-		{
-			if(response.result)
-			 if(response.result == "login-yes")
-			 { 
-				aes_key=response.aeskey;
-				aes_iv=response.aesiv;
-			 }
-		}
-	);
-	*/
+   
     getDomObject();
 
     checkLoginState();

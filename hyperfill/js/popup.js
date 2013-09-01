@@ -103,7 +103,7 @@ function handleServerResponse()
 {
 	if(req.readyState == 4 && req.status == 200)
 	{
-		console.log("ResponseText: "+req.responseText);
+		//console.log("ResponseText: "+req.responseText);
 		var un = document.getElementById("username").value;
 		var pw = document.getElementById("passwd").value;
 		
@@ -142,10 +142,12 @@ function handleServerResponse()
 
 function sendXHR(dataToSend, URL)
 {
-    console.log(URL+dataToSend);
-	req.open("GET", URL+dataToSend, true);
+    console.log(URL);
+	//console.log(URL + "?" + dataToSend);
 	req.onreadystatechange = handleServerResponse;
-	req.send();
+	req.open("post", URL, true);
+	req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	req.send(dataToSend);
 }
 
 function send(type)
@@ -154,7 +156,8 @@ function send(type)
     var pw = document.getElementById("passwd").value;
 	if(type == "login")//一旦send，则直接从这里与服务器通信
 	{
-			var dataToSend = "?username=" + encryptAES(encryptMD5(un), aes_server_key, aes_server_iv)+"&passwd="+ encryptAES(encryptMD5(pw), aes_server_key, aes_server_iv);
+			//var dataToSend = "?username=" + encryptAES(encryptMD5(un), aes_server_key, aes_server_iv)+"&passwd="+ encryptAES(encryptMD5(pw), aes_server_key, aes_server_iv);
+			var dataToSend = "username=" + encryptAES(encryptMD5(un), aes_server_key, aes_server_iv)+"&passwd="+ encryptAES(encryptMD5(pw), aes_server_key, aes_server_iv);
 			//var dataToSend = "?username=" + encryptForServer(encryptMD5(un,'un'))+"&passwd="+ encryptForServer(encryptMD5(pw,'pw'));
 			sendXHR(dataToSend, "http://localhost/hyperfill_validate.php");	
 	}
@@ -162,13 +165,13 @@ function send(type)
 	{
 			//生成rsa公钥、私钥对
 			rsa_key=keyGen();
-			var dataToSend = "?pubke=" + rsa_key.e.toString() + "&pubkn=" + rsa_key.n.toString();
+			var dataToSend = "pubke=" + rsa_key.e.toString() + "&pubkn=" + rsa_key.n.toString();
 			//console.log("http://localhost/hyperfill_getrsa.php"+dataToSend);
 			sendXHR(dataToSend, "http://localhost/hyperfill_getrsa.php");
 	}
 	else if(type == "register")
 	{
-			var dataToSend = "?username=" + encryptMD5(un)+"&passwd="+encryptMD5(pw);
+			var dataToSend = "username=" + encryptMD5(un)+"&passwd="+encryptMD5(pw);
 			sendXHR(dataToSend, "http://localhost/hyperfill_register.php");	
 	}
 	else
@@ -198,40 +201,39 @@ function register()
 
 function validate()
 {
-  if(input_invalid)
-  {
-	document.getElementById("help_loginbtn").innerText = "请正确填写";
-	return;
-  }
+    if(input_invalid)
+    {
+	    document.getElementById("help_loginbtn").innerText = "请正确填写";
+	    return;
+    }
   
-  document.getElementById("help_loginbtn").innerText = "";
-  var un = document.getElementById("username").value;
-  if(document.getElementById("loginbtn").value == "Logoff")
-  {
-	if(un.length == 3)
-	{
-		localLogoff();  //本地账户登出
-	}
-	else
-	{
-		document.getElementById("help_loginbtn").innerText = "提交中...";
-		send("logoff");
-	}
-  }
+    document.getElementById("help_loginbtn").innerText = "";
+    var un = document.getElementById("username").value;
+    if(document.getElementById("loginbtn").value == "Logoff")
+    {
+	    if(un.length == 3)
+	    {
+		    localLogoff();  //本地账户登出
+	    }
+	    else
+	    {
+		    document.getElementById("help_loginbtn").innerText = "提交中...";
+		    send("logoff");
+	    }
+    }
   
-  else
-  {	
-	if(un.length == 3)
-	{
-		localLogin();  //本地账户登出
-	}
-	else
-	{
-		document.getElementById("help_loginbtn").innerText = "提交中...";
-		//send("login");
-		send("getrsa"); //获取rsa
-	}
-  } 
+    else
+    {	
+	    if(un.length == 3)
+	    {
+		    localLogin();  //本地账户登录
+	    }
+	    else
+	    {
+		    document.getElementById("help_loginbtn").innerText = "提交中...";
+		    send("getrsa"); //获取rsa
+	    }
+    } 
 }
 
 function checkContent(e)
@@ -263,25 +265,22 @@ function saveForm()
 {
 	chrome.tabs.executeScript(null, {code: "csAction('save');"});
 	
-	setStyle(document.getElementById("help_savebtn"), null, "", "#bcee68", null, null);
-	setStyle(document.getElementById("help_clearbtn"), null, "", null, null, null);
-	
 	var help_savebtn = document.getElementById("help_savebtn");
 	var help_clearbtn = document.getElementById("help_clearbtn");
 	
-	help_savebtn.innerText = "保存成功";
-	help_clearbtn.innerText = "";
-	
-	help_savebtn.style.color = "#bcee68";
-	
-	
+	setStyle(help_savebtn, null, "保存成功", "#bcee68", null, null);
+	setStyle(help_clearbtn, null, "", null, null, null);
 }
 
 function clearForm()
 {
 	chrome.tabs.executeScript(null, {code: "csAction('clear');"});
-	setStyle(document.getElementById("help_clearbtn"), null, "清除成功", "#bcee68", null, null);
-	setStyle(document.getElementById("help_savebtn"), null, "", null, null, null);
+	
+	var help_savebtn = document.getElementById("help_savebtn");
+	var help_clearbtn = document.getElementById("help_clearbtn");
+	
+	setStyle(help_savebtn, null, "", null, null, null);
+	setStyle(help_clearbtn, null, "清除成功", "#bcee68", null, null);
 }
 
 document.addEventListener('DOMContentLoaded', function () {

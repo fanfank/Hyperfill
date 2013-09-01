@@ -1,17 +1,17 @@
 <?php
 	header("Content-type:text/html; charset=utf-8");
+	include "hyperfill_settings.php";
 	
-	$un=$_GET['username'];
-	$pw=$_GET['passwd'];
+	$un = $_POST['username'];
+	$pw = $_POST['passwd'];
 	
-	//$connect=mysql_connect('127.0.0.1:3306','root','uiop');
-	$connect=mysql_connect('127.0.0.1:3306','root','123abc');
+	$connect=mysql_connect($dbaddr,$dbun,$dbpw);
 
 	if(!$connect) 
 		echo "failed";
 	else
 	{
-		mysql_select_db("hyperfill",$connect);
+		mysql_select_db($dbname,$connect);
 	
 		$query = "select user_name from user where user_name='$un'";
 		$result = mysql_query($query, $connect);

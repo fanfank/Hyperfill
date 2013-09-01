@@ -14,18 +14,18 @@ function handleServerResponseGet()   //Reply to content_script
 	if(req.readyState == 4 && req.status == 200)
 	{
 		if(req.responseText == "failed")
-		  console.log("Database connection failed");
+		    console.log("Database connection failed");
 		else if(req.responseText == "fill-no")
-		  console.log("Validation failed");
+		    console.log("Validation failed");
 		else if(req.responseText == "fill-empty")
 		{  
-		  console.log("Not any filled form");
+		    console.log("Not any filled form");
 		}
 		else
 		{
-		  sessionStorage.setItem("autofill_"+hyper_fill_username, decryptAES(req.responseText, aes_key, ""));  //服务器返回内容经过本地AES加密，无需IV
-		  //console.log("In HSRG:"+req.responseText+" "+decryptAES(req.responseText, aes_key, ""));
-		  autoFill("session")
+		    sessionStorage.setItem("autofill_"+hyper_fill_username, decryptAES(req.responseText, aes_key, ""));  //服务器返回内容经过本地AES加密，无需IV
+		    //console.log("In HSRG:"+req.responseText+" "+decryptAES(req.responseText, aes_key, ""));
+		    autoFill("session")
 		}
 	}
 	else
@@ -38,18 +38,18 @@ function handleServerResponseDelete()   //Reply to content_script
 	if(req.readyState == 4 && req.status == 200)
 	{
 		if(req.responseText == "failed")
-		  console.log("Database connection failed");
+		    console.log("Database connection failed");
 		else if(req.responseText == "delete-no")
-		  console.log("Validation failed");
+		    console.log("Validation failed");
 		else if(req.responseText == "delete-empty")
 		{  
-		  console.log("Not any filled form");
-		  //whether should we set the browser not to check this url next time?
+		    console.log("Not any filled form");
+		    //whether should we set the browser not to check this url next time?
 		}
 		else
 		{
-		  console.log("Succeeded");
-		  sessionStorage.removeItem("autofill_"+hyper_fill_username);
+		    console.log("Succeeded");
+		    sessionStorage.removeItem("autofill_"+hyper_fill_username);
 		}
 	}
 	else
@@ -63,7 +63,7 @@ function handleServerResponseSet()
 	if(req.readyState == 4 && req.status == 200)
 	{
 		if(req.responseText == "failed")
-		 console.log("Database connection failed");
+		  console.log("Database connection failed");
 		else if(req.responseText == "set-no")
 		  console.log("Validation failed");
 		else
@@ -77,8 +77,6 @@ function handleServerResponseSet()
 
 function sendXHR(dataToSend, URL, type)
 {
-	req.open("GET", URL+dataToSend, true);
-	
 	if(type=="get")
 		req.onreadystatechange = handleServerResponseGet;
 	else if(type=="delete")
@@ -86,16 +84,18 @@ function sendXHR(dataToSend, URL, type)
 	else
 		req.onreadystatechange = handleServerResponseSet;
 	
-	//console.log("In sendXHR, data:"+URL+dataToSend);
+	req.open("post", URL, true);
+	req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	//console.log("In sendXHR, data:"+URL+"?"+dataToSend);
 	//console.log("In sendXHR, un pw:"+hyper_fill_username+" "+hup)
-	req.send();
+	req.send(dataToSend);
 }
 
 function getSessionStorage()
 {
 	if(isLogined == 1)
 	{
-		var dataToSend = "?username=" + encryptAES(un_md5,aes_server_key,aes_server_iv)+"&passwd="+encryptAES(pw_md5,aes_server_key,aes_server_iv)+"&url="+encodeURIComponent(url);
+		var dataToSend = "username=" + encryptAES(un_md5,aes_server_key,aes_server_iv)+"&passwd="+encryptAES(pw_md5,aes_server_key,aes_server_iv)+"&url="+encodeURIComponent(url);
 		sendXHR(dataToSend, "http://localhost/hyperfill_getForm.php", "get");
 	}
 	else if(isLogined == 2)
@@ -126,13 +126,14 @@ function deleteSessionStorage()
 					sessionStorage.removeItem("autofill_" + hyper_fill_username);
 				}
 				else
-					alert("delete failed!");
+					alert("deletion failed!");
 			}
 		);
 	}
 	else
 	{
-		var dataToSend = "?username=" + encryptAES(un_md5,aes_server_key,aes_server_iv)+"&passwd="+encryptAES(pw_md5, aes_server_key,aes_server_iv)+"&url="+encodeURIComponent(url);
+		//var dataToSend = "?username=" + encryptAES(un_md5,aes_server_key,aes_server_iv)+"&passwd="+encryptAES(pw_md5, aes_server_key,aes_server_iv)+"&url="+encodeURIComponent(url);
+		var dataToSend = "username=" + encryptAES(un_md5,aes_server_key,aes_server_iv)+"&passwd="+encryptAES(pw_md5, aes_server_key,aes_server_iv)+"&url="+encodeURIComponent(url);
 		sendXHR(dataToSend, "http://localhost/hyperfill_deleteForm.php", "delete");
 	}
 }
@@ -155,7 +156,8 @@ function setSessionStorage(content)
 	else
 	{
 		sessionStorage["autofill_"+hyper_fill_username] = content;
-		var dataToSend = "?username=" + encryptAES(un_md5,aes_server_key,aes_server_iv)+"&passwd="+encryptAES(pw_md5,aes_server_key,aes_server_iv)+"&url="+encodeURIComponent(url)+"&ct="+encryptAES(content, aes_key, "");
+		//var dataToSend = "?username=" + encryptAES(un_md5,aes_server_key,aes_server_iv)+"&passwd="+encryptAES(pw_md5,aes_server_key,aes_server_iv)+"&url="+encodeURIComponent(url)+"&ct="+encryptAES(content, aes_key, "");
+		var dataToSend = "username=" + encryptAES(un_md5,aes_server_key,aes_server_iv)+"&passwd="+encryptAES(pw_md5,aes_server_key,aes_server_iv)+"&url="+encodeURIComponent(url)+"&ct="+encryptAES(content, aes_key, "");
 		sendXHR(dataToSend,"http://localhost/hyperfill_setForm.php", "set");
 	}
 }
@@ -184,14 +186,14 @@ function init()
 		}
 	);
 	if(isLogined == -1)
-	 setTimeout(init, 100);
+	    setTimeout(init, 100);
 	 
 	else if(isLogined >= 1)
 	{
 		if(!sessionStorage["autofill_"+hyper_fill_username])
-		 getSessionStorage(); //连接数据库或后台页面
+		    getSessionStorage(); //连接数据库或后台页面
 		else
-		 autoFill("session");
+		    autoFill("session");
 		
 		/*
 		if(isLogined == 2)
@@ -237,26 +239,13 @@ function autoFill(type)  //type用于指定是local还是session
 
 	    var fields = formContent.split("\n");
 	    for (var i = 0; i < fields.length; i += 2) {
-	        var fn = fields[i];
+	        if(fields[i] == "")
+			    continue;
+			var fn = fields[i];
 	        fv = fields[i + 1];
 	        document.getElementsByName(fn)[0].value = fv;
 	    }
 	}
-    /*
-	var storage = window[type + "Storage"];
-	if(storage["autofill_"+hyper_fill_username])
-	{
-		var formContent = storage["autofill_"+hyper_fill_username];
-		
-		var fields = formContent.split("\n");
-		for(var i = 0;i<fields.length; i+=2)
-		{
-			var fn = fields[i];
-			fv=fields[i+1];
-			document.getElementsByName(fn)[0].value = fv;
-		}
-	}
-    */
 }
 
 function csAction(action) // save/clear form
@@ -274,14 +263,14 @@ function csAction(action) // save/clear form
 				if(!inputs[i].name || !inputs[i].value)
 					continue;
 				var b = inputs[i];
-				if(formContent)
+				/*if(formContent)
 				{  
 				    formContent += "\n" + b.name + "\n" + b.value;
 				}
 				else
-				{
-				    formContent += b.name+ "\n" + b.value;
-				}
+				{*/
+				formContent += b.name+ "\n" + b.value + "\n";
+				//}
 			}
 			
 		if(formContent)

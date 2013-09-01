@@ -1,6 +1,6 @@
 ﻿<?php
 	include "hyperfill_decryptaes.php";
-	include "hyperfill_settings.php"
+	include "hyperfill_settings.php";
 
 	session_start();
 	if(!isset($_SESSION['valid_user'])){
@@ -9,8 +9,8 @@
 	}
 	header("Content-type:text/html; charset=utf-8");
 	
-	$un = $_GET['username'];
-	$pw = $_GET['passwd'];
+	$un = $_POST['username'];
+	$pw = $_POST['passwd'];
 	$aes_server_key = $_SESSION['aes_server_key'];
 	$aes_server_iv = $_SESSION['aes_server_iv'];
 	
@@ -38,10 +38,10 @@
 			if($pw2 == $pw)
 			{	
 				//validation succeed, get the url
-				$url = $_GET['url'];
+				$url = $_POST['url'];
 				$url = urldecode($url);
 				
-				$ct=$_GET['ct'];
+				$ct=$_POST['ct'];
 				
 				$query = "select content from form where user_name='$un' and url='$url'";
 				$result = mysql_query($query, $connect);

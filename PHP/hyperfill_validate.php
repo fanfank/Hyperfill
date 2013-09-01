@@ -1,24 +1,24 @@
 ﻿<?php
 	include "hyperfill_decryptaes.php";
+	include "hyperfill_settings.php";
 	session_start();
 	header("Content-type:text/html; charset=utf-8");
 	$aes_server_key = $_SESSION['aes_server_key'];
 	$aes_server_iv = $_SESSION['aes_server_iv'];
 
-	$un=$_GET['username'];
-	$pw=$_GET['passwd'];
+	$un=$_POST['username'];
+	$pw=$_POST['passwd'];
 	
 	$un=decryptAES($un, $aes_server_key, $aes_server_iv);
 	$pw=decryptAES($pw, $aes_server_key, $aes_server_iv);
 	
-	//$connect=mysql_connect('127.0.0.1:3306','root','uiop');
-	$connect=mysql_connect('127.0.0.1:3306','root','123abc');
+	$connect=mysql_connect($dbaddr,$dbun,$dbpw);
 	
 	if(!$connect) 
 		echo "failed";
 	else
 	{
-		mysql_select_db("hyperfill",$connect);
+		mysql_select_db($dbname,$connect);
 	
 		$query = "select user_passwd from user where user_name='$un'";
 		$result = mysql_query($query, $connect);
