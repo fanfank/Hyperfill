@@ -70,6 +70,15 @@ then click the extionsion icon, and click *保存当前表单* to save.
 when URL is *https://mail.qq.com/*, then auto filling also works when the URL is 
 *https://mail.qq.com/cgi-bin/loginpage?autologin...*.    
 
+####Version 2.0 2013-08-19
+1. Readd a user type: local user. Local user can use *Hyperfill* without deploying anything except the extension itself
+2. Greatly improved local user's security level, before this version, local user's security problem is so severe that I
+finally decided to remove this user type.  
+
+####Version 1.0 2013-06
+1. Made hyperfill, because of local user's security problem, only net user was preserved.
+2. After registration, net users can have their forms auto filled.    
+
 ===    
 <div class = "footer">
     &copy; 2013 XiaoHe Team
