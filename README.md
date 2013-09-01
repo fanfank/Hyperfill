@@ -1,9 +1,9 @@
 Hyperfill
 =========
 
-A Chrome extension to auto fill the forms, current __version: 2.5__  
+A Chrome extension to auto fill the forms, current __version: 2.7__  
 You are free to download/use/modify these codes for __non-commercial__ uses  
-__Version1.0 DemoVideo/演示视频__: http://v.youku.com/v_show/id_XNTM0MzQzMDI0.html  
+__Version 1.0 DemoVideo - 1.0版本 演示视频__: http://v.youku.com/v_show/id_XNTM0MzQzMDI0.html  
 __if you understand chinese, skip this README.md and directly view the *最简单的安装方法.txt*__
 
 ###Description
@@ -52,15 +52,28 @@ then click the extionsion icon, and click *保存当前表单* to save.
 > 2. ~~Every php file contains databases's username and password, group it into a single file~~
 > 3. Waiting for some advices
 > 4. Enable both using *tab* key to switch between inputs and using *enter* to trigger *Login* button
-> 5. ~~Forms of dynamic URLs, say *https://mail.qq.com/xxx/yyy?12345...* and *https://mail.qq.com/xxx/yyy?54321...* can both get the forms filled
+> 5. ~~Forms of dynamic URLs, say *https://mail.qq.com/xxx/yyy?12345...* and *https://mail.qq.com/xxx/yyy?54321...* can both get the forms filled~~
+> 6. Make the server remember who has logged in
 
 +           Git: fanfank
 +   Code authors: Reetsee.Xu, Harry.Xiao, Shenghua.Xu, Junhua.He
 + Contact email: reetsee.xu@gmail.com  
 
+###VERSION LOGs
+####Version 2.7 2013-09-01
+1. Change all "GET" method to "POST"
+2. Fixed codes in PHP which can't run in the last version
+    
+####Version 2.5 2013-08-30
+1. Users can both have their forms filled no matter in *https://mail.qq.com/xxx/yyy?12345...* or
+*https://mail.qq.com/xxx/yyy?54321...*, as long as their prefixes are the same. It means that if you save your forms
+when URL is *https://mail.qq.com/*, then auto filling also works when the URL is 
+*https://mail.qq.com/cgi-bin/loginpage?autologin...*.    
+
+===    
 <div class = "footer">
     &copy; 2013 XiaoHe Team
 </div>
 
-*README.md Last update: 20130830*
+*README.md Last update: 20130901*
 
