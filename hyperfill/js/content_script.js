@@ -238,12 +238,15 @@ function autoFill(type)  //type用于指定是local还是session
 	    var formContent = storage["autofill_" + hyper_fill_username];
 
 	    var fields = formContent.split("\n");
-	    for (var i = 0; i < fields.length; i += 2) {
+	    for (var i = 0; i < fields.length - 1; i += 2) {
 	        if(fields[i] == "")
 			    continue;
 			var fn = fields[i];
 	        fv = fields[i + 1];
-	        document.getElementsByName(fn)[0].value = fv;
+	        var tmpObj = document.getElementsByName(fn);
+            if(tmpObj.length == 0)
+                continue;
+            tmpObj[0].value = fv;
 	    }
 	}
 }
