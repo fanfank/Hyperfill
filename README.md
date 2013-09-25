@@ -1,7 +1,7 @@
 Hyperfill
 =========
 
-A Chrome extension to auto fill the forms, current __version: 2.7__  
+A Chrome extension to auto fill the forms, current __version: 2.8__  
 You are free to download/use/modify these codes for __non-commercial__ uses  
 __Version 1.0 DemoVideo - 1.0版本 演示视频__: http://v.youku.com/v_show/id_XNTM0MzQzMDI0.html  
 __if you understand chinese, skip this README.md and directly view the *最简单的安装方法.txt*__   
@@ -58,7 +58,12 @@ then click the extionsion icon, and click *保存当前表单* to save.
 > 6. Make the server remember who has logged in    
 
 ===
-###VERSION LOGs
+###VERSION LOGs    
+####Version 2.8 2013-09-25    
+1. Added a server verifying process. Before sending username and password's MD5 to the server, client will first request
+ for server's identity message. It's encrypted using RSA, and then the client will use a public key to decode it, and see
+ if it is from the server
+    
 ####Version 2.7 2013-09-01
 1. Change all "GET" method to "POST"
 2. Fixed codes in PHP which can't run in the last version
