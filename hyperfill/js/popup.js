@@ -132,6 +132,17 @@ function handleServerResponse()
 		}
 		else if(req.responseText == "logoff-yes")
 		  showResult("logoff");
+		else if(req.responseText.substring(0, 6) == "i am: ")
+		{
+			if(rsaServerVerify(req.responseText.substring(6)))
+			{
+				send("getrsa"); //获取rsa
+			}
+			else
+			{
+				document.getElementById("help_loginbtn").innerText = "服务器不可信，连接终止";
+			}
+		}
 		else
 			showResult("non");
 	}
@@ -160,6 +171,11 @@ function send(type)
 			var dataToSend = "username=" + encryptAES(encryptMD5(un), aes_server_key, aes_server_iv)+"&passwd="+ encryptAES(encryptMD5(pw), aes_server_key, aes_server_iv);
 			//var dataToSend = "?username=" + encryptForServer(encryptMD5(un,'un'))+"&passwd="+ encryptForServer(encryptMD5(pw,'pw'));
 			sendXHR(dataToSend, "http://localhost/hyperfill_validate.php");	
+	}
+	else if(type == "verify")
+	{
+		var dataToSend = "req=whoareyou";
+		sendXHR(dataToSend, "http://localhost/hyperfill_serverVerify.php");
 	}
 	else if(type == "getrsa")
 	{
@@ -231,7 +247,8 @@ function validate()
 	    else
 	    {
 		    document.getElementById("help_loginbtn").innerText = "提交中...";
-		    send("getrsa"); //获取rsa
+			send("verify");
+		    //send("getrsa"); //获取rsa
 	    }
     } 
 }

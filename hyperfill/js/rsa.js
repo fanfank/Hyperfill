@@ -1,6 +1,31 @@
 /******************************
 RSA Related Start
 ******************************/
+function rsaServerVerify(msg)
+{
+	//console.log("msg: "+msg);
+	var str = "";
+	var num, ans, cnt;
+	var i = 0;
+	for(;i<32;i=i+2)
+	{
+		num = parseInt(msg.substring(i,i+2));
+		cnt = server_pub_key.e;
+		ans = 1;
+		while(cnt!=0)
+		{
+			cnt = cnt - 1;
+			ans = (ans*num)%server_pub_key.n;
+		}
+		//console.log("ans: "+ans.toString());
+		str = str+cc[ans];
+	}
+	//console.log("verify result: "+str);
+	if(str == "imserverimserver")
+		return 1;
+	else
+		return 0;
+}
 function rsaDecode(code)
 {
 	console.log("rsaDecode function");
@@ -102,6 +127,8 @@ function keyGen()
 	var kk=new rsakey(e,d,n);
 	return kk;
 }
+
+var server_pub_key=new rsakey(13,0,77);
 /******************************
 RSA Related End
 ******************************/

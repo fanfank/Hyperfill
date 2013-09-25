@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Hyperfill",
-  "version": "2.7",
+  "version": "2.8",
   "description": "Help you fill the blocks.",
   "content_scripts": [
     {
