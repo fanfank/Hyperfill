@@ -1,7 +1,11 @@
 Hyperfill
 =========
+__Good news! Now everyone can run this app as a net user(rather than a local user) because I put the background of this app on BAE__    
+__好消息！现在各位可以在安装插件后直接使用插件的所有功能（而不像之前只能使用本地账户），因为我把插件的后台放在了BAE上面__    
+But remember that __Don't save anything important on this extension since its only an INCOMPLETE software__! I'm not responsible for any loss caused by this software   
+但是请记住 __千万不要将重要的信息保存在这个插件上！因为这个插件是一个在安全性上还有欠缺的软件__ !对于该软件对您做成的损失我不能负任何责任！敬请谅解！
 
-A Chrome extension to auto fill the forms, current __version: 2.8__  
+A Chrome extension to auto fill the forms, current __version: 3.0__  
 You are free to download/use/modify these codes for __non-commercial__ uses  
 __Version 1.0 DemoVideo - 1.0版本 演示视频__: http://v.youku.com/v_show/id_XNTM0MzQzMDI0.html  
 __if you understand chinese, skip this README.md and directly view the *最简单的安装方法.txt*__   
@@ -20,24 +24,27 @@ account unless you are a developer, and will set up PHP, MySQL on your machine, 
 how to do it.
 
 ###Installation
+####For Normal Users    
 1. This plug-in can be used almost all web browsers that incoporate chrome's core, this README will guide you 
 assuming that you are using chrome/chromium.
 2. Type `chrome://extensions/` in your address bar and open it
 3. Tick *developer's mode* in the upper right corner
 4. Then click a button named *load a developing extension* or something like that (because I'm using a chinese version, 
 dont't exactly know what the button says in English)
-5. Choose `./hyperfill` then click OK.
-6. __If you just use local account or you are not a developer, then congratulations! Installation complete!__ 
+5. Choose `./hyperfill` then click OK.    
+
+####For developers, continue    
+1. __If you just use local account or you are not a developer, then congratulations! Installation complete!__ 
 Else keep on ...
-7. You are a developer! __Welcome!__ First you have to install PHP, and make sure it works, detailed installation of php 
+2. You are a developer! __Welcome!__ First you have to install PHP, and make sure it works, detailed installation of php 
 can be found on web.
-8. Then you have to set up MySQL database, please search the web for detailed installation. __Remeber that__, initially my
+3. Then you have to set up MySQL database, please search the web for detailed installation. __Remeber that__, initially my
 MySQL setting is *password* for *root* account is *123abc*, you can change it as long as you change the default settings 
 int `./PHP/*.php` files
-9. Copy all the files from `./PHP` to your *localhost* directory
-10. Create a database named *hyperfill* using *root* account and password *123abc*, then create two tables according to 
+4. Copy all the files from `./PHP` to your *localhost* directory
+5. Create a database named *hyperfill* using *root* account and password *123abc*, then create two tables according to 
 `./附录/MySQL数据库建表命令.pdf`.
-11. All set. 
+6. All set. 
 
 ###Usage
 1. Strongly recommend you directly refer to the Demo Video (even though it's a v1.0) first. Else move forward.
@@ -55,10 +62,15 @@ then click the extionsion icon, and click *保存当前表单* to save.
 > 3. Waiting for some advices
 > 4. Enable both using *tab* key to switch between inputs and using *enter* to trigger *Login* button
 > 5. ~~Forms of dynamic URLs, say *https://mail.qq.com/xxx/yyy?12345...* and *https://mail.qq.com/xxx/yyy?54321...* can both get the forms filled~~
-> 6. Make the server remember who has logged in    
+> 6. Make the server remember who has logged in
+> 7. ~~Make it run on web~~
 
 ===
 ###VERSION LOGs    
+####Vesrion 3.0 2013-10-29    
+1. Firstly let me announce a good news that I had gone through Baidu's interview, cheer up for me    
+2. Secondly it's a great news that you no longer need to set up the whole environment yourself! Just run it! This extension's background is running on BAE   
+     
 ####Version 2.8 2013-09-25    
 1. Added a server verifying process. Before sending username and password's MD5 to the server, client will first request
  for server's identity message. It's encrypted using RSA, and then the client will use a public key to decode it, and see
