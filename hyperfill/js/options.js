@@ -29,6 +29,8 @@ var aes_server_key = "";
 var curUsername;
 var username = -1;
 
+var urlbase = "http://hyperfill.duapp.com/";
+
 
 function getObjByID(id) {
     return document.getElementById(id);
@@ -281,7 +283,7 @@ function getRecord() {
         }
     }
 
-    xhr.open("post", "http://localhost/hyperfill_view.php", true);
+    xhr.open("post", urlbase + "hyperfill_view.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     //console.log();
@@ -358,7 +360,7 @@ function submitChangePasswd() {
                 }
             }
 
-            xhrc.open("post", "http://localhost/hyperfill_changepasswd.php", true);
+            xhrc.open("post", urlbase + "hyperfill_changepasswd.php", true);
             xhrc.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             var sendcontent = "username=" + encryptAES(encryptMD5(curUsername, ""), aes_server_key, aes_server_iv) + "&oldpasswd=" + encryptAES(encryptMD5(oldPasswd, ""),
                 aes_server_key, aes_server_iv) + "&newpasswd=" + encryptAES(encryptMD5(newPasswd, ""), aes_server_key, aes_server_iv) +
@@ -369,7 +371,7 @@ function submitChangePasswd() {
     }
 
     //alert("a");
-    xhr.open("post", "http://localhost/hyperfill_view.php", true);
+    xhr.open("post", urlbase + "hyperfill_view.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     var sendcontent = "username=" + encryptAES(encryptMD5(curUsername, ""), aes_server_key, aes_server_iv);
     //alert(sendcontent);
@@ -431,7 +433,7 @@ function deleteRecords() {
         }
     }
 
-    xhr.open("post", "http://localhost/hyperfill_delete.php", true);
+    xhr.open("post", urlbase + "hyperfill_delete.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.send("username=" + encryptAES(encryptMD5(curUsername, ""), aes_server_key, aes_server_iv) + "&urls=" + encodeURIComponent(checkedURL));
 

@@ -7,6 +7,7 @@ var aes_key="";
 var aes_server_key="";
 var aes_server_iv="";
 var cc = new Array("0","0","0","0","0","0","0","0","0","0","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
+var urlbase = "http://hyperfill.duapp.com/";
 
 function aesGen()
 {
@@ -103,7 +104,7 @@ function handleServerResponse()
 {
 	if(req.readyState == 4 && req.status == 200)
 	{
-		//console.log("ResponseText: "+req.responseText);
+		console.log("ResponseText: "+req.responseText);
 		var un = document.getElementById("username").value;
 		var pw = document.getElementById("passwd").value;
 		
@@ -154,7 +155,7 @@ function handleServerResponse()
 function sendXHR(dataToSend, URL)
 {
     console.log(URL);
-	//console.log(URL + "?" + dataToSend);
+	console.log(URL + "?" + dataToSend);
 	req.onreadystatechange = handleServerResponse;
 	req.open("post", URL, true);
 	req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -170,12 +171,12 @@ function send(type)
 			//var dataToSend = "?username=" + encryptAES(encryptMD5(un), aes_server_key, aes_server_iv)+"&passwd="+ encryptAES(encryptMD5(pw), aes_server_key, aes_server_iv);
 			var dataToSend = "username=" + encryptAES(encryptMD5(un), aes_server_key, aes_server_iv)+"&passwd="+ encryptAES(encryptMD5(pw), aes_server_key, aes_server_iv);
 			//var dataToSend = "?username=" + encryptForServer(encryptMD5(un,'un'))+"&passwd="+ encryptForServer(encryptMD5(pw,'pw'));
-			sendXHR(dataToSend, "http://localhost/hyperfill_validate.php");	
+			sendXHR(dataToSend, urlbase + "hyperfill_validate.php");	
 	}
 	else if(type == "verify")
 	{
 		var dataToSend = "req=whoareyou";
-		sendXHR(dataToSend, "http://localhost/hyperfill_serverVerify.php");
+		sendXHR(dataToSend, urlbase + "hyperfill_serverVerify.php");
 	}
 	else if(type == "getrsa")
 	{
@@ -183,17 +184,17 @@ function send(type)
 			rsa_key=keyGen();
 			var dataToSend = "pubke=" + rsa_key.e.toString() + "&pubkn=" + rsa_key.n.toString();
 			//console.log("http://localhost/hyperfill_getrsa.php"+dataToSend);
-			sendXHR(dataToSend, "http://localhost/hyperfill_getrsa.php");
+			sendXHR(dataToSend, urlbase + "hyperfill_getrsa.php");
 	}
 	else if(type == "register")
 	{
 			var dataToSend = "username=" + encryptMD5(un)+"&passwd="+encryptMD5(pw);
-			sendXHR(dataToSend, "http://localhost/hyperfill_register.php");	
+			sendXHR(dataToSend, urlbase + "hyperfill_register.php");	
 	}
 	else
 	{
 			chrome.extension.sendMessage({validate: "no"});
-			sendXHR("", "http://localhost/hyperfill_logoff.php");
+			sendXHR("", urlbase + "hyperfill_logoff.php");
 			showResult("logoff");
 	}
 }

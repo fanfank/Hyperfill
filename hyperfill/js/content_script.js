@@ -8,6 +8,7 @@ var aes_key="";
 var aes_server_key="";
 var aes_server_iv="";
 var timeout = 0;
+var urlbase = "http://hyperfill.duapp.com/";
 
 function handleServerResponseGet()   //Reply to content_script
 {
@@ -96,7 +97,7 @@ function getSessionStorage()
 	if(isLogined == 1)
 	{
 		var dataToSend = "username=" + encryptAES(un_md5,aes_server_key,aes_server_iv)+"&passwd="+encryptAES(pw_md5,aes_server_key,aes_server_iv)+"&url="+encodeURIComponent(url);
-		sendXHR(dataToSend, "http://localhost/hyperfill_getForm.php", "get");
+		sendXHR(dataToSend, urlbase + "hyperfill_getForm.php", "get");
 	}
 	else if(isLogined == 2)
 	{
@@ -134,7 +135,7 @@ function deleteSessionStorage()
 	{
 		//var dataToSend = "?username=" + encryptAES(un_md5,aes_server_key,aes_server_iv)+"&passwd="+encryptAES(pw_md5, aes_server_key,aes_server_iv)+"&url="+encodeURIComponent(url);
 		var dataToSend = "username=" + encryptAES(un_md5,aes_server_key,aes_server_iv)+"&passwd="+encryptAES(pw_md5, aes_server_key,aes_server_iv)+"&url="+encodeURIComponent(url);
-		sendXHR(dataToSend, "http://localhost/hyperfill_deleteForm.php", "delete");
+		sendXHR(dataToSend, urlbase + "hyperfill_deleteForm.php", "delete");
 	}
 }
 
@@ -158,7 +159,7 @@ function setSessionStorage(content)
 		sessionStorage["autofill_"+hyper_fill_username] = content;
 		//var dataToSend = "?username=" + encryptAES(un_md5,aes_server_key,aes_server_iv)+"&passwd="+encryptAES(pw_md5,aes_server_key,aes_server_iv)+"&url="+encodeURIComponent(url)+"&ct="+encryptAES(content, aes_key, "");
 		var dataToSend = "username=" + encryptAES(un_md5,aes_server_key,aes_server_iv)+"&passwd="+encryptAES(pw_md5,aes_server_key,aes_server_iv)+"&url="+encodeURIComponent(url)+"&ct="+encryptAES(content, aes_key, "");
-		sendXHR(dataToSend,"http://localhost/hyperfill_setForm.php", "set");
+		sendXHR(dataToSend, urlbase + "hyperfill_setForm.php", "set");
 	}
 }
 
