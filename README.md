@@ -19,9 +19,8 @@ web account's username is at least 4.
 3. Local account stores data locally, and I ensured data security as best as I can. Yet, I am not a security specialist,
 so I can't make a promise that this extension won't get your accounts into troubles, serious uses please avoid storing 
 sensitive data on the extension.
-4. Web account stores data on a web database. __However__, I __haven't__ bought such a database, so don't register a web 
-account unless you are a developer, and will set up PHP, MySQL on your machine, later in this document I'll tell you 
-how to do it.
+4. Web account stores data on a web database. <del>__However__, I __haven't__ bought such a database, so don't register a web account unless you are a developer, and will set up PHP, MySQL on your machine, later in this document I'll tell you 
+how to do it.</del>
 
 ###Installation
 ####For Normal Users    
@@ -104,5 +103,5 @@ finally decided to remove this user type.
     &copy; 2013 XiaoHe Team
 </div>
 
-*README.md Last update: 20130901*
+*README.md Last update: 20140107*
 
